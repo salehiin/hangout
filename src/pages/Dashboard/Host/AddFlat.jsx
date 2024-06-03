@@ -6,6 +6,8 @@ import { imageUpload } from "../../../api/utilities";
 
 const AddFlat = () => {
     const {user} = useAuth()
+    const [imagePreview, setImagePreview] = useState()
+    const [imageText, setImageText] = useState('Upload Image') 
 
     const [dates, setDates] = useState({
             startDate: new Date(),
@@ -15,7 +17,7 @@ const AddFlat = () => {
 
           // Date range handler
           const handleDates = item =>{
-            console.log(item)
+            
             setDates(item.selection)
           }
 
@@ -56,20 +58,27 @@ const AddFlat = () => {
             }catch(err){
                 console.log(err)
             }
-
           
         }
 
+        //handle image change
+        const handleImage = image =>{
+            setImagePreview(URL.createObjectURL(image))
+            setImageText(image.name)
+        }
+
     return (
-        <div>
-            <h1>Add Flat Page...</h1>
-            {/* Form */}
+        
             <AddFlatForm 
             dates={dates} 
             handleDates={handleDates}
             handleSubmit={handleSubmit}
+            setImagePreview = {setImagePreview}
+            imagePreview={imagePreview}
+            handleImage={handleImage}
+            imageText={imageText}
             ></AddFlatForm>
-        </div>
+        
     );
 };
 
