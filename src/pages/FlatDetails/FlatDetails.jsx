@@ -63,14 +63,14 @@ const FlatDetails = () => {
                 gap-2
               '
                 >
-                  <div>Hosted by {flat?.host?.name}</div>
+                  <div>Hosted by {flat?.ownerInfo?.name}</div>
 
                   <img
                     className='rounded-full'
                     height='30'
                     width='30'
                     alt='Avatar'
-                    src={flat?.host?.image}
+                    src={flat?.ownerInfo?.image}
                   />
                 </div>
                 <div
