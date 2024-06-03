@@ -4,6 +4,7 @@ import useAuth from '../../hooks/useAuth'
 import axios from 'axios'
 import toast from 'react-hot-toast'
 import { PiSpinnerBallDuotone } from "react-icons/pi";
+import { imageUpload } from '../../api/utilities'
 // import { HashLoader }from 'react-spinners'
 {/* <HashLoader color="#36d7b7" /> */}
 // https://www.davidhu.io/react-spinners/
@@ -19,25 +20,20 @@ const SignUp = () => {
     const email = form.email.value
     const password = form.password.value
     const image = form.image.files[0]
-    const formData = new FormData()
-    formData.append('image', image)
+    
     
 
     try{
       setLoading(true)
-      const{data} = await axios.post(
-        `https://api.imgbb.com/1/upload?key=${
-        import.meta.env.VITE_IMGBB_API_KEY}`,
-      
-        formData
-      
-      )
-      console.log(data.data.display_url)
+      //Upload image
+      const image_url = await imageUpload(image)
+      console.log(image_url)
 
+      //user registration
       const result = await createUser(email, password)
       console.log(result)
 
-      await updateUserProfile(name, data.data.display_url)
+      await updateUserProfile(name, image_url)
       navigate('/')
       toast.success('Signup Successful')
       

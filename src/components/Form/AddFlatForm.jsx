@@ -98,7 +98,7 @@ const AddFlatForm = ({dates, handleDates, handleSubmit}) => {
                 </label>
                 <input
                   className='w-full px-4 py-3 text-gray-800 border border-rose-300 focus:outline-rose-500 rounded-md '
-                  name='price'
+                  name='rent'
                   id='price'
                   type='number'
                   placeholder='Price'
@@ -129,7 +129,7 @@ const AddFlatForm = ({dates, handleDates, handleSubmit}) => {
                 <input
                   className='w-full px-4 py-3 text-gray-800 border border-rose-300 focus:outline-rose-500 rounded-md '
                   name='bedrooms'
-                  id='bedrooms'
+                  id='beds'
                   type='number'
                   placeholder='Bedrooms'
                   required
@@ -143,13 +143,58 @@ const AddFlatForm = ({dates, handleDates, handleSubmit}) => {
                 <input
                   className='w-full px-4 py-3 text-gray-800 border border-rose-300 focus:outline-rose-500 rounded-md '
                   name='bathrooms'
-                  id='bathrooms'
+                  id='baths'
                   type='number'
                   placeholder='Bathrooms'
                   required
                 />
               </div>
             </div>
+
+            {/* //Have to Edit */}
+            {/* //Have to Edit */}
+            <div className='space-y-1 text-sm'>
+                <label htmlFor='bathrooms' className='block text-gray-600'>
+                floorNo 
+                </label>
+                <input
+                  className='w-full px-4 py-3 text-gray-800 border border-rose-300 focus:outline-rose-500 rounded-md '
+                  name='floorNo'
+                  id='floorNo'
+                  type='number'
+                  placeholder='floorNo '
+                  required
+                />
+              </div>
+            <div className='space-y-1 text-sm'>
+                <label htmlFor='bathrooms' className='block text-gray-600'>
+                blockName 
+                </label>
+                <input
+                  className='w-full px-4 py-3 text-gray-800 border border-rose-300 focus:outline-rose-500 rounded-md '
+                  name='blockName '
+                  id='blockName'
+                  type='number'
+                  placeholder='blockName '
+                  required
+                />
+              </div>
+            <div className='space-y-1 text-sm'>
+                <label htmlFor='bathrooms' className='block text-gray-600'>
+                apartmentNo
+                </label>
+                <input
+                  className='w-full px-4 py-3 text-gray-800 border border-rose-300 focus:outline-rose-500 rounded-md '
+                  name='apartmentNo'
+                  id='bathrooms'
+                  type='number'
+                  placeholder='BaapartmentNothrooms'
+                  required
+                />
+              </div>
+            
+            {/* //Have to Edit */}
+            {/* //Have to Edit */}
 
             <div className='space-y-1 text-sm'>
               <label htmlFor='description' className='block text-gray-600'>
