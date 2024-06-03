@@ -5,17 +5,21 @@ import { imageUpload } from "../../../api/utilities";
 import { Helmet } from "react-helmet-async";
 import useAxiosSecure, { axiosSecure } from "../../../hooks/useAxiosSecure";
 import { useMutation } from "@tanstack/react-query";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 
 const AddFlat = () => {
+    const navigate = useNavigate()
     const axiosSecure = useAxiosSecure()
+    const [loading, setLoading] = useState(false)
     const {user} = useAuth()
     const [imagePreview, setImagePreview] = useState()
     const [imageText, setImageText] = useState('Upload Image') 
 
     const [dates, setDates] = useState({
             startDate: new Date(),
-            endDate: null,
+            endDate: new Date(),
             key: 'selection'
           })
 
@@ -33,7 +37,10 @@ const AddFlat = () => {
             },
             onSuccess: () =>{
                 console.log('Data Saved Successfully')
-            }
+                toast.success('Unit Added Successfully!')
+                navigate('/dashboard/my-listings')
+                setLoading(false)
+            },
 
           }) 
 
@@ -41,6 +48,7 @@ const AddFlat = () => {
         //   Form handler
         const handleSubmit = async e => {
             e.preventDefault()
+            setLoading(true)
             const form = e.target
             const title = form.title.value
             const location = form.location.value
@@ -78,6 +86,8 @@ const AddFlat = () => {
 
             }catch(err){
                 console.log(err)
+                toast.error(err.message)
+                setLoading(false)
             }
           
         }
@@ -103,6 +113,7 @@ const AddFlat = () => {
             imagePreview={imagePreview}
             handleImage={handleImage}
             imageText={imageText}
+            loading={loading}
             ></AddFlatForm>
             
             </>
