@@ -2,9 +2,13 @@ import { useState } from "react";
 import AddFlatForm from "../../../components/Form/AddFlatForm";
 import useAuth from "../../../hooks/useAuth";
 import { imageUpload } from "../../../api/utilities";
+import { Helmet } from "react-helmet-async";
+import useAxiosSecure, { axiosSecure } from "../../../hooks/useAxiosSecure";
+import { useMutation } from "@tanstack/react-query";
 
 
 const AddFlat = () => {
+    const axiosSecure = useAxiosSecure()
     const {user} = useAuth()
     const [imagePreview, setImagePreview] = useState()
     const [imageText, setImageText] = useState('Upload Image') 
@@ -20,6 +24,19 @@ const AddFlat = () => {
             
             setDates(item.selection)
           }
+
+          const {mutateAsync} = useMutation({
+
+            mutationFn: async (flatData) =>{
+                const {data} = await axiosSecure.post(`/flat`, flatData)
+                return data
+            },
+            onSuccess: () =>{
+                console.log('Data Saved Successfully')
+            }
+
+          }) 
+
 
         //   Form handler
         const handleSubmit = async e => {
@@ -55,6 +72,10 @@ const AddFlat = () => {
 
                 console.table(flatData)
 
+
+                //post request to server
+                await mutateAsync(flatData)
+
             }catch(err){
                 console.log(err)
             }
@@ -69,6 +90,11 @@ const AddFlat = () => {
 
     return (
         
+            <>
+            
+            <Helmet>
+                <title>Add Flat | Dashboard</title>
+            </Helmet>
             <AddFlatForm 
             dates={dates} 
             handleDates={handleDates}
@@ -78,6 +104,8 @@ const AddFlat = () => {
             handleImage={handleImage}
             imageText={imageText}
             ></AddFlatForm>
+            
+            </>
         
     );
 };
