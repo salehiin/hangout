@@ -49,3 +49,6 @@ Card.propTypes = {
 }
 
 export default Card
+
+
+//d2 p3 14:20
