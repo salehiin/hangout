@@ -22,7 +22,7 @@ const Card = ({ flat }) => {
                 group-hover:scale-110 
                 transition
               '
-            src={flat?.apartmentImage}
+            src={flat?.image}
             alt='flat'
           />
           <div

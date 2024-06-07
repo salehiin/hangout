@@ -14,7 +14,7 @@ const FlatDetails = () => {
     const axiosCommon = useAxiosCommon()
  
 
-    const {data: flat = {}, isLoading} = useQuery({
+    const {data: flat = {}, isLoading, refetch} = useQuery({
       queryKey: ['flat', id],
       queryFn: async ()=>{
           const { data } = await axiosCommon.get(`/flat/${id}`)
@@ -43,7 +43,7 @@ const FlatDetails = () => {
               <div className='w-full md:h-[60vh] overflow-hidden rounded-xl'>
                 <img
                   className='object-cover w-full'
-                  src={flat.apartmentImage}
+                  src={flat.image}
                   alt='header image'
                 />
               </div>
@@ -101,7 +101,7 @@ const FlatDetails = () => {
 
             <div className='md:col-span-3 order-first md:order-last mb-10'>
               {/* flatReservation */}
-              <FlatReservation flat={flat} />
+              <FlatReservation refetch={refetch} flat={flat} />
             </div>
           </div>
         </div>

@@ -3,9 +3,13 @@ import Button from '../Shared/Button/Button'
 import { DateRange } from 'react-date-range';
 import { useState } from 'react';
 import { differenceInCalendarDays } from 'date-fns';
+import BookingModal from '../Modal/BookingModal';
+import useAuth from '../../hooks/useAuth';
 
-const FlatReservation = ({ flat }) => {
-  console.log(flat.to, flat.from)
+const FlatReservation = ({ flat, refetch }) => {
+  const {user} = useAuth()
+
+  const [isOpen, setIsOpen] = useState(false)
   const [state, setState] = useState([
     {
       startDate: new Date(flat.from),
@@ -13,6 +17,10 @@ const FlatReservation = ({ flat }) => {
       key: 'selection'
     }
   ]);
+
+  const closeModal = () =>{
+    setIsOpen(false)
+  }
 
   //total days * rent
   const totalRent = parseInt(
@@ -49,8 +57,18 @@ console.log(totalRent)
         </div>
       <hr />
       <div className='p-4'>
-        <Button label={'Reserve'} />
+        <Button disabled={flat?.booked === true} onClick={()=>setIsOpen(true)} label={flat?.booked ? 'Booked' : 'Reserve'} />
       </div>
+      {/* Modal */}
+      <BookingModal 
+          isOpen={isOpen}
+          refetch={refetch} 
+          closeModal={closeModal} 
+          bookingInfo={{
+            ...flat, 
+          rent: totalRent, 
+          guest: {name: user?.displayName, email: user?.email, image: user?.photoURL,},}
+      }></BookingModal>
       <hr />
       <div className='p-4 flex items-center justify-between font-semibold text-lg'>
         <div>Total</div>
@@ -62,6 +80,7 @@ console.log(totalRent)
 
 FlatReservation.propTypes = {
   flat: PropTypes.object,
+  refetch: PropTypes.func,
 }
 
 export default FlatReservation
