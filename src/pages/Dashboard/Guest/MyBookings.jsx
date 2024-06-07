@@ -84,11 +84,12 @@ const MyBookings = () => {
                 </thead>
                 <tbody>
                   {/* Table Row Data */}
-                  {bookings.map(booking=> <BookingDataRow 
+                  {bookings.map(booking=> (<BookingDataRow 
                   key={booking._id} 
                   booking={booking} 
                   refetch={refetch}>
-                  </BookingDataRow>)}
+                  </BookingDataRow>))}
+                  
                 </tbody>
               </table>
             </div>

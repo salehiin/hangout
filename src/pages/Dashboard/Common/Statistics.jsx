@@ -1,9 +1,12 @@
+import useRole from "../../../hooks/useRole"
+import AdminStatistics from "../Admin/AdminStatistics";
 
 const Statistics = () => {
+    const [role, isLoading] = useRole()
     return (
-        <div>
-            <h1>Welcome to dashboard: Statistics Page</h1>
-        </div>
+        <>
+            {role === 'admin' && <AdminStatistics></AdminStatistics>}
+        </>
     );
 };
 
