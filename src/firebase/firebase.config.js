@@ -20,12 +20,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBzClbyvTuLVYAS5bim3Bl52m0Geu6KjvU",
-  authDomain: "atwelve-hangout.firebaseapp.com",
-  projectId: "atwelve-hangout",
-  storageBucket: "atwelve-hangout.appspot.com",
-  messagingSenderId: "81622908469",
-  appId: "1:81622908469:web:dd60f6a87b23ef6195fb7c"
+  apiKey: import.meta.env.VITE_APIKEY,
+  authDomain: import.meta.env.VITE_AUTHDOMAIN,
+  projectId: import.meta.env.VITE_PROJECTID,
+  storageBucket: import.meta.env.VITE_STORAGEBUCKET,
+  messagingSenderId: import.meta.env.VITE_MESSAGINGSENDERID,
+  appId: import.meta.env.VITE_APPID,
 };
 
 // Initialize Firebase

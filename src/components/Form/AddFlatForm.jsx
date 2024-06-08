@@ -179,7 +179,7 @@ const AddFlatForm = ({dates, handleDates, handleSubmit, setImagePreview, imagePr
                   className='w-full px-4 py-3 text-gray-800 border border-rose-300 focus:outline-rose-500 rounded-md '
                   name='blockName '
                   id='blockName'
-                  type='number'
+                  type='text'
                   placeholder='blockName '
                   required
                 />

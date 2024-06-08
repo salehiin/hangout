@@ -104,7 +104,12 @@ const MyListings = () => {
                 <tbody>{/* Flat row data */}
                 {flats.map(flat=>(
                     
-                    <FlatDataRow key={flat._id} flat={flat} handleDelete={handleDelete}></FlatDataRow>
+                    <FlatDataRow 
+                    key={flat._id} 
+                    flat={flat} 
+                    handleDelete={handleDelete}
+                    refetch={refetch}
+                    ></FlatDataRow>
                 ))}
                 </tbody>
               </table>

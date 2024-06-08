@@ -1,19 +1,23 @@
 import { Calendar } from 'react-date-range'
-import { FaUserAlt, FaDollarSign } from 'react-icons/fa'
+import { FaDollarSign } from 'react-icons/fa'
 import { BsFillCartPlusFill, BsFillHouseDoorFill } from 'react-icons/bs'
-import SalesLineChart from '../../../components/Dashboard/SalesLineChart'
+import { GiPlayerTime } from 'react-icons/gi'
+import LoadingSpinner from '../../../components/Shared/LoadingSpinner'
 import { useQuery } from '@tanstack/react-query'
 import useAxiosSecure from '../../../hooks/useAxiosSecure'
-import LoadingSpinner from '../../../components/Shared/LoadingSpinner'
+import SalesLineChart from '../../../components/Dashboard/SalesLineChart'
+import { formatDistanceToNow, subDays } from "date-fns";
 
-const AdminStatistics = () => {
+const HostStatistics = () => {
+
+    
     const axiosSecure = useAxiosSecure()
-  // Fetch Admin Stat Data here
+  // Fetch host Stat Data here
 
   const {data: statData={}, isLoading} = useQuery({
     queryKey: ['statData'],
     queryFn: async ()=>{
-        const {data} = await axiosSecure.get('/admin-stat')
+        const {data} = await axiosSecure.get('/host-stat')
         return data
     }
     })
@@ -34,29 +38,14 @@ const AdminStatistics = () => {
             </div>
             <div className='p-4 text-right'>
               <p className='block antialiased font-sans text-sm leading-normal font-normal text-blue-gray-600'>
-                Total Rents
+                Total Rent
               </p>
               <h4 className='block antialiased tracking-normal font-sans text-2xl font-semibold leading-snug text-blue-gray-900'>
-                ${statData?.totalRents}
+              {statData?.totalRents}
               </h4>
             </div>
           </div>
-          {/* Users Card */}
-          <div className='relative flex flex-col bg-clip-border rounded-xl bg-white text-gray-700 shadow-md'>
-            <div
-              className={`bg-clip-border mx-4 rounded-xl overflow-hidden bg-gradient-to-tr shadow-lg absolute -mt-4 grid h-16 w-16 place-items-center from-green-600 to-green-400 text-white shadow-green-500/40`}
-            >
-              <FaUserAlt className='w-6 h-6 text-white' />
-            </div>
-            <div className='p-4 text-right'>
-              <p className='block antialiased font-sans text-sm leading-normal font-normal text-blue-gray-600'>
-                Total User
-              </p>
-              <h4 className='block antialiased tracking-normal font-sans text-2xl font-semibold leading-snug text-blue-gray-900'>
-              {statData?.totalUsers}
-              </h4>
-            </div>
-          </div>
+
           {/* Total Bookings */}
           <div className='relative flex flex-col bg-clip-border rounded-xl bg-white text-gray-700 shadow-md'>
             <div
@@ -82,10 +71,27 @@ const AdminStatistics = () => {
             </div>
             <div className='p-4 text-right'>
               <p className='block antialiased font-sans text-sm leading-normal font-normal text-blue-gray-600'>
-                Total Rooms
+                Total Flats
               </p>
               <h4 className='block antialiased tracking-normal font-sans text-2xl font-semibold leading-snug text-blue-gray-900'>
               {statData?.totalFlats}
+              </h4>
+            </div>
+          </div>
+
+          {/* Users Card */}
+          <div className='relative flex flex-col bg-clip-border rounded-xl bg-white text-gray-700 shadow-md'>
+            <div
+              className={`bg-clip-border mx-4 rounded-xl overflow-hidden bg-gradient-to-tr shadow-lg absolute -mt-4 grid h-16 w-16 place-items-center from-green-600 to-green-400 text-white shadow-green-500/40`}
+            >
+              <GiPlayerTime className='w-6 h-6 text-white' />
+            </div>
+            <div className='p-4 text-right'>
+              <p className='block antialiased font-sans text-sm leading-normal font-normal text-blue-gray-600'>
+                Host Since...
+              </p>
+              <h4 className='block antialiased tracking-normal font-sans text-2xl font-semibold leading-snug text-blue-gray-900 capitalize'>
+               {statData?.hostSince && formatDistanceToNow(new Date(statData?.hostSince))}
               </h4>
             </div>
           </div>
@@ -107,4 +113,4 @@ const AdminStatistics = () => {
   )
 }
 
-export default AdminStatistics
+export default HostStatistics
