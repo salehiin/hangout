@@ -1,20 +1,39 @@
-import { Helmet } from 'react-helmet-async'
-import Categories from '../../components/Categories/Categories'
-// import Rooms from '../../components/Home/Rooms'
-import Flats from '../../components/Home/Flats'
+import { Helmet } from 'react-helmet-async';
+import Categories from '../../components/Categories/Categories';
+import Flats from '../../components/Home/Flats';
+import Banner from '../../components/Home/Banner';
 
 const Home = () => {
   return (
-    <div>
+    <div className="bg-gray-900 text-white min-h-screen lg:px-9">
       <Helmet>
-        <title>StayVista | Vacation Homes & Condo Rentals</title>
+        <title>HangOut | Cozy Tranquil Homes</title>
       </Helmet>
-      {/* Categories section  */}
-      <Categories />
-      {/* Rooms section */}
-      <Flats />
-    </div>
-  )
-}
+      {/* Header */}
+      {/* <header className="bg-purple-900 py-4">
+        <div className="container mx-auto text-center">
+          <h1 className="text-4xl font-bold">Welcome to StayVista</h1>
+          <p className="text-lg mt-4">Discover Amazing Getaways for Your Next Adventure</p>
+        </div>
+      </header> */}
+      <Banner></Banner>
 
-export default Home
+      {/* Main Content */}
+      <div className="container mx-auto flex flex-col md:flex-row mt-8">
+        {/* Categories section */}
+        <section className="lg:w-1/4 px-4">
+          <h2 className="text-2xl font-bold mb-4 text-purple-200 text-center">Categories</h2>
+          <Categories />
+        </section>
+
+        {/* Featured Flats section */}
+        <section className="lg:w-3/4 px-4">
+          <h2 className="text-2xl font-bold mb-4 text-purple-200">Featured Flats</h2>
+          <Flats />
+        </section>
+      </div>
+    </div>
+  );
+};
+
+export default Home;

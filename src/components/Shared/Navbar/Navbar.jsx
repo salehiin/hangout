@@ -7,6 +7,11 @@ import avatarImg from '../../../assets/images/placeholder.jpg'
 import HostModal from '../../Modal/HostRequestModal'
 import useAxiosSecure from '../../../hooks/useAxiosSecure'
 import toast from "react-hot-toast";
+import { PiBuildingApartmentThin } from 'react-icons/pi'
+import { GiGreenhouse  } from 'react-icons/gi'
+import { BiSolidBuildingHouse   } from 'react-icons/bi'
+import { SiHomebridge   } from 'react-icons/si'
+import { FcHome   } from 'react-icons/fc'
 
 const Navbar = () => {
   const axiosSecure = useAxiosSecure()
@@ -44,19 +49,22 @@ const Navbar = () => {
   } 
 
   return (
-    <div className='fixed w-full bg-white z-10 shadow-sm'>
+    <div className='fixed w-full bg-yellow-500 z-10 shadow-sm'>
       <div className='py-4 border-b-[1px]'>
         <Container>
           <div className='flex flex-row  items-center justify-between gap-3 md:gap-0'>
             {/* Logo */}
-            <Link to='/'>
-              <img
+            <Link to='/' className='flex items-center gap-1 text-xl text-blue-500'>
+              {/* <img
+              className='bg-blue-500'
                 // className='hidden md:block'
                 src='https://i.ibb.co/4ZXzmq5/logo.png'
                 alt='logo'
                 width='100'
                 height='100'
-              />
+              /> */}
+              <SiHomebridge  className='text-2xl' />
+              <p>HangOut</p>
             </Link>
             {/* Dropdown Menu */}
             <div className='relative'>
@@ -67,9 +75,9 @@ const Navbar = () => {
                     <button
                       // disabled={!user}
                       onClick={()=>setIsModalOpen(true)}
-                      className='disabled:cursor-not-allowed cursor-pointer hover:bg-neutral-100 py-3 px-4 text-sm font-semibold rounded-full  transition'
+                      className='disabled:cursor-not-allowed cursor-pointer hover:bg-neutral-100 py-3 px-4 text-sm font-semibold rounded-full  transition text-blue-500'
                     >
-                      Host your home
+                      Add a Listing
                     </button>
                   {/* )} */}
                 </div>

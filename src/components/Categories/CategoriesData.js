@@ -8,21 +8,26 @@ import {
   GiForestCamp,
   GiIsland,
   GiWindmill,
+  GiModernCity,
+  GiBlockHouse 
 } from 'react-icons/gi'
-import { FaSkiing } from 'react-icons/fa'
+import { FaSkiing, FaThLarge  } from 'react-icons/fa'
 import { BsSnow } from 'react-icons/bs'
 import { IoDiamond } from 'react-icons/io5'
-import { MdOutlineVilla } from 'react-icons/md'
+import { MdOutlineVilla, MdHomeWork, MdAddHomeWork   } from 'react-icons/md'
+import { HiOutlineHomeModern } from "react-icons/hi2";
+import { SiEsphome } from "react-icons/si";
+import { RiHomeHeartLine } from "react-icons/ri";
 
 export const categories = [
   {
     label: 'Spacious',
-    icon: TbBeach,
+    icon: HiOutlineHomeModern,
     description: 'This property is close to the beach!',
   },
   {
     label: 'Large',
-    icon: GiWindmill,
+    icon: MdHomeWork ,
     description: 'This property is has windmills!',
   },
   {
@@ -32,27 +37,27 @@ export const categories = [
   },
   {
     label: 'Luxurious',
-    icon: TbMountain,
+    icon: TbPool,
     description: 'This property is in the countryside!',
   },
   {
     label: 'Modern',
-    icon: TbPool,
+    icon: GiModernCity,
     description: 'This is property has a beautiful pool!',
   },
   {
     label: 'Stunning',
-    icon: GiIsland,
+    icon: MdAddHomeWork ,
     description: 'This property is on an island!',
   },
   {
     label: 'Charming',
-    icon: GiBoatFishing,
+    icon: SiEsphome ,
     description: 'This property is near a lake!',
   },
   {
     label: 'Affordable',
-    icon: FaSkiing,
+    icon: RiHomeHeartLine,
     description: 'This property has skiing activities!',
   },
   {
@@ -60,34 +65,34 @@ export const categories = [
     icon: GiCastle,
     description: 'This property is an ancient castle!',
   },
-  {
-    label: 'Well-maintained',
-    icon: GiCaveEntrance,
-    description: 'This property is in a spooky cave!',
-  },
-  {
-    label: 'Camping',
-    icon: GiForestCamp,
-    description: 'This property offers camping activities!',
-  },
-  {
-    label: 'Arctic',
-    icon: BsSnow,
-    description: 'This property is in arctic environment!',
-  },
-  {
-    label: 'Desert',
-    icon: GiCactus,
-    description: 'This property is in the desert!',
-  },
-  {
-    label: 'Barns',
-    icon: GiBarn,
-    description: 'This property is in a barn!',
-  },
-  {
-    label: 'Lux',
-    icon: IoDiamond,
-    description: 'This property is brand new and luxurious!',
-  },
+  // {
+  //   label: 'Well-maintained',
+  //   icon: GiBlockHouse,
+  //   description: 'This property is in a spooky cave!',
+  // },
+  // {
+  //   label: 'Camping',
+  //   icon: GiForestCamp,
+  //   description: 'This property offers camping activities!',
+  // },
+  // {
+  //   label: 'Arctic',
+  //   icon: BsSnow,
+  //   description: 'This property is in arctic environment!',
+  // },
+  // {
+  //   label: 'Desert',
+  //   icon: GiCactus,
+  //   description: 'This property is in the desert!',
+  // },
+  // {
+  //   label: 'Barns',
+  //   icon: GiBarn,
+  //   description: 'This property is in a barn!',
+  // },
+  // {
+  //   label: 'Lux',
+  //   icon: IoDiamond,
+  //   description: 'This property is brand new and luxurious!',
+  // },
 ]
