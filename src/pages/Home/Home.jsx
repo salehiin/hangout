@@ -2,6 +2,8 @@ import { Helmet } from 'react-helmet-async';
 import Categories from '../../components/Categories/Categories';
 import Flats from '../../components/Home/Flats';
 import Banner from '../../components/Home/Banner';
+import AboutBuilding from '../../components/Form/AboutBuilding';
+import LocationDetails from '../../components/Home/LocationDetails';
 
 const Home = () => {
   return (
@@ -32,6 +34,8 @@ const Home = () => {
           <Flats />
         </section>
       </div>
+      <AboutBuilding></AboutBuilding>
+      <LocationDetails></LocationDetails>
     </div>
   );
 };
