@@ -16,6 +16,7 @@ import AdminRoute from './AdminRoute'
 import HostRoute from './HostRoute'
 import MyBookings from '../pages/Dashboard/Guest/MyBookings'
 import ManageBookings from '../pages/Dashboard/Host/ManageBookings'
+import Apartments from '../pages/Apartments/Apartments'
 
 export const router = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ export const router = createBrowserRouter([
       {
         path: '/',
         element: <Home />,
+      },
+      {
+        path: '/apartments',
+        element: <Apartments></Apartments>,
       },
       {
         path: '/flat/:id',

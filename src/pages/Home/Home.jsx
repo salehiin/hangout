@@ -26,7 +26,7 @@ const Home = () => {
           <Categories />
         </section>
 
-        {/* Featured Flats section */}
+        {/* Featured s section */}
         <section className="lg:w-3/4 px-4">
           <h2 className="text-2xl font-bold mb-4 text-purple-200">Featured Flats</h2>
           <Flats />
