@@ -1,14 +1,33 @@
-import { useQuery } from "@tanstack/react-query";
+import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
 import useAxiosCommon from "../../hooks/useAxiosCommon";
 import { useSearchParams, Link } from "react-router-dom";
 import LoadingSpinner from "../../components/Shared/LoadingSpinner";
 import shortDetails from "../Apartments/shortDetails";
+// import InfiniteScroll from 'react-infinite-scroll-component';
 // import anu from '../../components/Home/'
 
 const Apartments = () => {
   const axiosCommon = useAxiosCommon();
   const [params, setParams] = useSearchParams();
   const category = params.get("category");
+
+  // const {data, fetchNextPage,hasNextPage} = useInfiniteQuery({
+  //   queryKey: ["flats", category],
+  //   queryFn: async () => {
+  //     const { data } = await axiosCommon.get(`/flats?category=${category}`);
+  //     return data;
+  //   },
+  //   getNextPageParam: (lastPage) =>{
+  //     if(lastPage.prevOffset + 10 > lastPage.dataCount){
+  //       return false;
+  //     }
+  //     return lastPage.prevOffset + 10;
+  //   }
+  // })
+
+  // const flats = data?.pages.reduce((acc, page) =>{
+  //   return[...acc,...page.data]
+  // },[]) 
 
   const { data: flats = [], isLoading } = useQuery({
     queryKey: ["flats", category],
@@ -76,6 +95,25 @@ const Apartments = () => {
           </div>
         </div>
       </div>
+      {/* <div>
+        <InfiniteScroll 
+        dataLength={data ? data.length : 0}
+        next={()=> fetchNextPage()}
+        hasMore={ hasNextPage }
+        loading={<div>Loading...</div>}
+        >
+          <div className="w-11/12 mx-auto grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5 my-10">{
+            data && data.map((data, idx)=>{
+              return(
+                <div key={idx}>
+                  <p>{idx + 1}</p>
+                  <h3>{data.description}</h3>
+                </div>
+              )
+            })
+          }</div>
+        </InfiniteScroll>
+      </div> */}
     </>
   );
 };
