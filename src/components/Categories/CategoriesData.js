@@ -46,7 +46,7 @@ export const categories = [
     description: 'This is property has a beautiful pool!',
   },
   {
-    label: 'Stunning',
+    label: 'Micro',
     icon: MdAddHomeWork ,
     description: 'This property is on an island!',
   },
@@ -55,16 +55,16 @@ export const categories = [
     icon: SiEsphome ,
     description: 'This property is near a lake!',
   },
-  {
-    label: 'Affordable',
-    icon: RiHomeHeartLine,
-    description: 'This property has skiing activities!',
-  },
-  {
-    label: 'Elegant',
-    icon: GiCastle,
-    description: 'This property is an ancient castle!',
-  },
+  // {
+  //   label: 'Affordable',
+  //   icon: RiHomeHeartLine,
+  //   description: 'This property has skiing activities!',
+  // },
+  // {
+  //   label: 'Elegant',
+  //   icon: GiCastle,
+  //   description: 'This property is an ancient castle!',
+  // },
   // {
   //   label: 'Well-maintained',
   //   icon: GiBlockHouse,

@@ -3,7 +3,7 @@ import { FaSquareFacebook, FaSquareTwitter, FaInstagram, FaSquareWhatsapp } from
 
 const Footer = () => {
   return (
-    <footer className='px-10 flex items-center justify-between  text-gray-800 relative bottom-0 left-0 bg-black'>
+    <footer className='px-2 md:px-10 flex flex-col md:flex-row items-center justify-between  text-gray-800 relative bottom-0 left-0 bg-black'>
       <div className='py-6 text-sm text-center text-blue-300'>
         © 2024-2025 HangOut Inc. All rights reserved.
       </div>

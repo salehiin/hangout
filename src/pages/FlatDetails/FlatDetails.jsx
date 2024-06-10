@@ -25,10 +25,10 @@ const FlatDetails = () => {
     <div className='bg-gray-900'>
         <Container>
       <Helmet>
-        <title>{flat?.category}</title>
+        <title>HangOut | {flat?.category}</title>
       </Helmet>
       {flat && (
-        <div className="max-w-screen-lg mx-auto mt-5">
+        <div className="max-w-screen-lg mx-auto mt-5 py-6">
           {/* Header */}
           <Heading title={flat.category} subtitle={flat.apartmentNo} />
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-6">
@@ -44,7 +44,7 @@ const FlatDetails = () => {
             <div className="flex flex-col justify-between gap-8 lg:col-span-1">
               <div className="flex flex-col gap-2">
                 <div className="text-xl font-semibold flex items-center gap-2">
-                  <div>Hosted by {flat?.ownerInfo?.name}</div>
+                  <div className='text-blue-300'>Hosted by {flat?.ownerInfo?.name}</div>
                   <img
                     className="rounded-full"
                     height="30"
@@ -54,14 +54,14 @@ const FlatDetails = () => {
                     src={flat?.ownerInfo?.image}
                   />
                 </div>
-                <div className="flex flex-row items-center gap-4 font-light text-neutral-500">
+                <div className="flex flex-row items-center gap-4 font-light text-yellow-500">
                   <div>{flat?.guest} guests</div>
-                  <div>{flat?.beds} flats</div>
-                  <div>{flat?.baths} bathflats</div>
+                  <div>{flat?.beds} beds</div>
+                  <div>{flat?.baths} baths</div>
                 </div>
               </div>
               <hr className="border-neutral-200" />
-              <div className="text-lg font-light text-neutral-500">
+              <div className="text-lg font-light text-blue-300">
                 {flat?.description}
               </div>
               <hr className="border-neutral-200" />

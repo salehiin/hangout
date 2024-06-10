@@ -3,6 +3,7 @@ import useAxiosCommon from "../../hooks/useAxiosCommon";
 import { useSearchParams, Link } from "react-router-dom";
 import LoadingSpinner from "../../components/Shared/LoadingSpinner";
 import shortDetails from "../Apartments/shortDetails";
+import { Helmet } from 'react-helmet-async';
 // import InfiniteScroll from 'react-infinite-scroll-component';
 // import anu from '../../components/Home/'
 
@@ -42,6 +43,9 @@ const Apartments = () => {
   return (
     <>
       <shortDetails />
+      <Helmet>
+        <title>HangOut | All Apartments</title>
+      </Helmet>
       <div className="bg-blue-300">
         <div className="container mx-auto py-12">
           <div className="grid gap-8 lg:grid-cols-2 xl:grid-cols-3">
