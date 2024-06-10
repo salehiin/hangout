@@ -16,6 +16,8 @@ import AdminMenu from './Menu/AdminMenu'
 import GuestMenu from './Menu/GuestMenu'
 import ToggleBtn from '../../Shared/Button/ToggleBtn'
 import { SiHomebridge   } from 'react-icons/si'
+import { BiNews   } from 'react-icons/bi'
+import Announcements from '../../../pages/Dashboard/Common/Announcements.jsx';
 
 const Sidebar = () => {
   const { logOut } = useAuth()
@@ -98,6 +100,8 @@ const Sidebar = () => {
              {role === 'guest' && <GuestMenu></GuestMenu>}
              {role === 'host' ? toggle ? <HostMenu></HostMenu> : <GuestMenu></GuestMenu> : undefined}
              {role === 'admin' && <AdminMenu></AdminMenu>}
+
+             <MenuItem label='Announcements' address='/announcements' icon={BiNews }></MenuItem>
 
             </nav>
           </div>

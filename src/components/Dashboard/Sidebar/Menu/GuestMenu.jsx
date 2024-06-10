@@ -1,6 +1,6 @@
 import { BsFingerprint } from 'react-icons/bs'
 import { GrUserAdmin } from 'react-icons/gr'
-import MenuItem from './/MenuItem'
+import MenuItem from './MenuItem'
 import useRole from '../../../../hooks/useRole'
 import HostModal from '../../../Modal/HostRequestModal'
 import { useState } from 'react'

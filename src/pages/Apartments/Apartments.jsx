@@ -44,22 +44,23 @@ const Apartments = () => {
                   >
                     <div className="bg-gray-900 bg-opacity-50 p-6 h-full flex flex-col justify-between">
                       <div>
-                        <h2 className="text-white text-xl font-bold mb-2">
-                          {flat.title}
+                        <h2 className="text-xl font-bold mb-2 text-blue-300">
+                          {flat.title} / {flat.apartmentNo}
                         </h2>
-                        <p className="text-white text-sm mb-4">
+                        <p className="text-white text-sm mb-4 text-yellow-500">
                           {flat.description}
                         </p>
+                        {/* <p className="text-white">Flat: {flat.apartmentNo}</p> */}
                       </div>
-                      <div className="flex items-center justify-between">
-                        <span className="text-white">Price: ${flat.price}</span>
-                        <span className="text-white">Rooms: {flat.rooms}</span>
+                      <div className="flex items-center justify-between font-semibold text-yellow-500">
+                        <span className="">Block: {flat.blockName}</span>
+                        <span className="">Floor: {flat.floorNo}</span>
                       </div>
-                      <div className="flex items-center mt-2">
-                        <span className="text-sm text-white">
-                          Location: {flat.location}
-                        </span>
+                      <div className="flex items-center justify-between font-semibold text-yellow-500 mt-2">
+                        <span className=" ">Location: {flat.location}</span>
+                        <span className=" ">Rent: ${flat.rent}</span>
                       </div>
+                      <h5 className="text-right font-bold text-blue-300 pt-4">View Details ...</h5>
                     </div>
                   </div>
                 </Link>

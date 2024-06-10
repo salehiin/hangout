@@ -17,6 +17,7 @@ import HostRoute from './HostRoute'
 import MyBookings from '../pages/Dashboard/Guest/MyBookings'
 import ManageBookings from '../pages/Dashboard/Host/ManageBookings'
 import Apartments from '../pages/Apartments/Apartments'
+import Announcements from '../pages/Dashboard/Common/Announcements'
 
 export const router = createBrowserRouter([
   {
@@ -89,6 +90,10 @@ export const router = createBrowserRouter([
       {
         path: 'profile',
         element: <PrivateRoute><Profile></Profile></PrivateRoute> 
+      },
+      {
+        path: 'announcements',
+        element: <Announcements></Announcements>
       },
     ],
   }

@@ -32,9 +32,15 @@ const Flats = () => {
     <Container>
       {flats && flats.length > 0 ? (
         <div className='pt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-8'>
-          {flats.map(flat => (
+          {/* {foods.slice(0, 6).map((food) => (
+            <FoodCard key={food._id} food={food}></FoodCard>
+          ))} */}
+          {flats.slice(0, 8).map(flat => (
             <Card key={flat._id} flat={flat} />
           ))}
+          {/* {flats.map(flat => (
+            <Card key={flat._id} flat={flat} />
+          ))} */}
         </div>
       ) : (
         <div className='flex items-center justify-center min-h-[calc(100vh-300px)]'>
